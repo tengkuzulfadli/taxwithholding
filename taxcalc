@@ -1,0 +1,37 @@
+using System;
+
+namespace LabFourFour
+{
+    class ComputeNetPay
+    {
+        static void Main(string[] args)
+        {
+            double WithholdingTax1 = 0.1;
+            double WithholdingTax2 = 0.15;
+
+            Console.WriteLine("Please enter your hourly rate : ");
+            double HourlyPayRate = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Please enter your working hours : ");
+            double HoursWorked = Convert.ToDouble(Console.ReadLine());
+
+            double GrossPay = HourlyPayRate * HoursWorked;
+            Console.WriteLine("Your gross pay is :" + GrossPay);
+
+            double NetPay1 = GrossPay - (GrossPay * WithholdingTax1);
+            double NetPay2 = GrossPay - (GrossPay * WithholdingTax2);
+
+            if (GrossPay <= 300.00)
+            {
+                Console.WriteLine("Your net pay is : " + string.Format("{0:0.00 }",
+                NetPay1));
+            } else
+            {
+                Console.WriteLine("Your net pay is : " + string.Format("{0:0.00 }",
+                NetPay2));
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
